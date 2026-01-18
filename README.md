@@ -1,4 +1,4 @@
 Homepage
 ========
 
-<starry-s.moe>
+<https://starry-s.moe>
