@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="theme-color" content="#0e0e0e">
-    <meta name="msapplication-TileColor" content="#0e0e0e">
-    <meta name="keywords" content="Life, STARRY-S, HomePage">
-    <meta name="author" content="STARRY-S">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page not found | STARRY-S</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/404.css">
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body id="body">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('pref-theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <link rel="stylesheet" type="text/css" href="/css/404.css">
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+            } else if (savedTheme === 'light') {
+                document.body.classList.add('light');
+            }
+        })();
+    </script>
 
-    <title>404 Not Found | STARRY-S' Homepage</title>
-  </head>
-  <body>
-    <div class="background">
-      <div class="main">
-        <div class="container">
-          <img src="https://http.cat/404"/>
-          <hr>
-          <p>The page you are trying to access does not exist</p>
+    <header>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <svg id="sun-icon" class="theme-icon" style="display: none;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="moon-icon" class="theme-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </header>
+
+    <main class="container">
+        <div class="fof-wrapper">
+            <h1>404</h1>
+            <p>The page you were looking for does not exist.</p>
+            <a href="/" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                Home
+            </a>
         </div>
-      </div>
-    </div>
-    <script color="150,150,150" opacity='0.8' zIndex="-2" count="80" src="https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js" integrity="sha512-BpcsHtrXIkZQunroAvdgJpIeLmOKDme9fVmWHGh7mRDSPWZFH0KCSXXUSuWmxh/IkEzg7zhNoUZoTKTyldMS9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  </body>
+    </main>
+
+    <footer>
+        <p class="footer-content">&copy; 2026 STARRY-S</p>
+        <p class="footer-content">Hosted by GitHub Pages</p>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
 </html>

@@ -1,62 +1,97 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="theme-color" content="#33363b">
-    <meta name="msapplication-TileColor" content="#33363b">
-    <meta name="keywords" content="STARRY-S">
-    <meta name="author" content="STARRY-S">
-    <meta name="cf-2fa-verify" content="56a7f406cbfe533">
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARRY-S | Homepage</title>
+    <meta name="description" content="Personal homepage of STARRY-S">
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <title>STARRY-S' Homepage</title>
-  </head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+</head>
+<body id="body">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('pref-theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  <body>
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+            } else if (savedTheme === 'light') {
+                document.body.classList.add('light');
+            }
+        })();
+    </script>
+
     <header>
-      <span class="label label_top_right">
-        <i class="fas fa-heart"></i>
-      </span>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <svg id="sun-icon" class="theme-icon" style="display: none;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg id="moon-icon" class="theme-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
     </header>
-    </div>
-    <div class="background">
-      <div class="main">
-        <h1>STARRY-S' Homepage</h1>
-        <hr>
-        <strong>Morning.</strong>
-        <hr>
-        <div>
-          <nav class="cover-navigation">
-            <ul class="navigation">
-              <li class="navigation-item">
-                <a href="https://blog.starry-s.moe/">Blog</a>
-              </li>
-              <li class="navigation-item">
-                <a href="https://blog.starry-s.moe/gallery/">Photos</a>
-              </li>
-              <li class="navigation-item">
-                <a href="https://github.com/STARRY-S/">GitHub</a>
-              </li>
-              <li class="navigation-item">
-                <a href="https://blog.starry-s.moe/about/">About</a>
-              </li>
-            </ul>
-          </nav>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <div class="avatar-section">
+                <img src="/web-app-manifest-512x512.png" alt="STARRY-S Avatar" class="profile-img">
+            </div>
+
+            <div class="info-section">
+                <h1>STARRY-S</h1>
+
+                <div class="bio-list">
+                    <div class="bio-item">
+                        <svg class="bio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Liaoning, China</span>
+                    </div>
+
+                    <div class="bio-item">
+                        <svg class="bio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                        <span>Photography, MTB, Furry</span>
+                    </div>
+
+                    <div class="bio-item">
+                        <svg class="bio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                        <span>Arch Linux, Golang, Container, Cloud Native, AI Agents</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://blog.starry-s.moe" class="btn">Blog</a>
+                    <a href="https://github.com/STARRY-S" class="btn">GitHub</a>
+                    <a href="https://blog.starry-s.moe/gallery" class="btn">Photos</a>
+                    <a href="https://blog.starry-s.moe/about" class="btn">About</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </main>
+
+    <meting-js
+      server="netease"
+      type="playlist"
+      id="8433061690"
+      fixed="true"
+      theme="#232323"
+      lrc-type="0"
+      >
+    </meting-js>
+
     <footer>
-      <div class="label">
-        <p>Hosted by <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
-      </div>
+        <p class="footer-content">&copy; 2026 STARRY-S</p>
+        <p class="footer-content">Hosted by GitHub Pages</p>
     </footer>
-    <script color="150,150,150" opacity='0.8' zIndex="-2" count="80" src="https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/1.0.1/canvas-nest.js" integrity="sha512-BpcsHtrXIkZQunroAvdgJpIeLmOKDme9fVmWHGh7mRDSPWZFH0KCSXXUSuWmxh/IkEzg7zhNoUZoTKTyldMS9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  </body>
+    <script src="/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</body>
 </html>
